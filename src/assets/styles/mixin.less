@@ -1,0 +1,76 @@
+// 不可复制
+.no-select() {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+// 超出省略 (需要是块状元素)
+.ell() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+// 超出多行省略
+.ellipsis(@l: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: @l;  /*要显示的行数*/
+    -webkit-box-orient: vertical;
+}
+
+//absolute-margin 上下左右居中
+.amc(@width, @height) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -@height/2;
+    margin-left: -@width/2;
+}
+//absolute-transform 上下左右居中
+.acc() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+//absolute-transform 上下居中
+.atc() {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+//absolute-transform 左右居中
+.alc() {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+//flex 上下左右居中
+.fcc() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+//flex上下居中 左右对齐
+.fsb(@a: center) {
+    display: flex;
+    justify-content: space-between;
+    align-items: @a;
+}
+//flex上下居中
+.fac(@j: flex-start) {
+    display: flex;
+    align-items: center;
+    justify-content: @j;
+}
+.flex(@j: flex-start, @a: center, @direction: column) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @j;
+    align-items: @a;
+}
+
