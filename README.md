@@ -32,7 +32,7 @@ npm run build
 ```
 ### 适配方案
 本项目使用postcss-pxtorem 插件适配
-如果适配有问题可以尝试使用vw vh 
+如果适配有问题可以尝试使用vw vh 或者直接使用百分比布局
 src\styles\utils.less 该文件中有备用函数
 ```
 .box {

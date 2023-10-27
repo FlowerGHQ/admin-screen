@@ -2,12 +2,14 @@
   <div id="StatisticsIndex">
     <div class="header-container">
       <img class="bg" src="@/assets/images/statistics/header_bg.png" alt="" />
-      <img
+      <!-- <img
         class="title"
         src="@/assets/images/statistics/title.png"
         alt=""
         :style="{ top: style.titleTop }"
-      />
+      /> -->
+      <div class="title" :style="{ top: style.titleTop }">新零售收入大屏</div>
+
       <div class="time">
         {{ currTime.day }} <span>{{ currTime.week }}</span> {{ currTime.time }}
       </div>
@@ -171,20 +173,27 @@ function handleFolderChange(key) {
   }
   .header-container {
     top: 0;
+    z-index: 4;
     .title {
       .alc();
+      position: absolute;
+      top: 0;
+      left: 55%;
+      color: #fff;
+      z-index: 3;
       width: 26%;
+      font-size: 40px;
+      font-family: "youshebiaotihei";
     }
     .time {
       .fac();
       position: absolute;
-      .px2font(20);
-      // font-size: 20px;
+      font-size: 20px;
       font-weight: bold;
       color: #40dfe2;
-      .px2vh(line-height,23);
-      .px2vw(right,32);
-      .px2vh(top,7);
+      line-height: 23px;
+      right: 32px;
+      top: 7px;
       font-family: DIN Alternate-Bold, DIN Alternate;
       span {
         .px2font(17);
@@ -216,8 +225,7 @@ function handleFolderChange(key) {
         position: absolute;
         z-index: 2;
         height: 100%;
-        .px2vw(width,16);
-        // width: 16px;
+        width: 16px;
         top: 0;
         bottom: 0;
         &:after,

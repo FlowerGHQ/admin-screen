@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "youshebiaotihei";
+  src: url('YouSheBiaoTiHei-2.ttf') format('truetype'),
+}
+
+@font-face {
+  font-family: "HFR";
+  src: url('HanaleiFill-Regular.ttf') format('truetype'),
+}
+
+.BTH {
+    font-family: "youshebiaotihei" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
