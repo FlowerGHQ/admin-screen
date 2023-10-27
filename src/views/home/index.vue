@@ -62,9 +62,6 @@ const {
 } = getCurrentInstance();
 
 onMounted(() => {
-  // window.onresize = handleWindowOnResize;
-  // handleWindowOnResize();
-  // getData();
   // handleTimeWork();
 });
 
@@ -88,33 +85,9 @@ const style = ref({});
 let timer = null;
 let timerCount = 0;
 
-// 时间改变
-function getData() {
-  let now = dayjs();
-  // let mark = $U.statTypeFilter(search.value.stat_type, "mark");
-  let begin_time = now.startOf(mark);
-  let end_time = now.endOf(mark);
-
-  let obj = {
-    ...search.value,
-    begin_time: begin_time.unix(),
-    end_time: end_time.unix(),
-  };
-
-  proxy.$refs["count_stat"].getData(obj);
-  proxy.$refs["energy_stat"].getData(obj);
-  proxy.$refs["alarm_rate_stat"].getData(obj);
-
-  proxy.$refs["alarm_line_stat"].getData(obj);
-  proxy.$refs["alarm_curr_list"].getData(obj);
-  proxy.$refs["event_count_stat"].getData(obj);
-
-  /* proxy.$refs['map_stat'].getData(obj) */
-}
 function handleTimeWork() {
   if (timerCount === 60) {
     timerCount = 0;
-    getData();
   }
   clearTimeout(timer);
   now = dayjs();
@@ -127,25 +100,6 @@ function handleTimeWork() {
     handleTimeWork();
   }, 1 * 1000);
 }
-function handleWindowOnResize() {
-  let w =
-    window.innerWidth ||
-    document.documentElement.clientWidth ||
-    document.body.clientWidth;
-
-  let _style = {
-    canterPadTop: (w * 80) / 1920 + "px",
-    canterPadBom: (w * 60) / 1920 + "px",
-    titleTop: (w * 16) / 1920 + "px",
-  };
-  console.log("_style:", _style);
-  style.value = _style;
-
-  proxy.$nextTick(() => {
-    proxy.$refs["alarm_rate_stat"].handleWindowOnResize();
-  });
-}
-
 const folder = ref({
   left: false,
   right: false,
