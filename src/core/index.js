@@ -4,11 +4,13 @@
 import Api from './api/index';
 import Const from './const'
 import Data from './data';
+import * as Util from './utils.js'
 
 const Core = {
     Api,
     Const,
     Data,
+    Util
 };
 
 export default Core;

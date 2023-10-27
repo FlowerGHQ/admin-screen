@@ -1,4 +1,5 @@
 import { localStorageObj } from "./enum/localStorage";
+import commonEnum from '@/core/const/enum/common.js';
 /*
  * @Date: 2023-10-25 16:46:52
  */
@@ -38,5 +39,6 @@ const Const = {
     URL_POINT: URL_POINT,
     FILE_UPLOAD_END_POINT: `${URL_POINT}/file/file-upload`,
   },
+  ...commonEnum
 }
 export default Const;

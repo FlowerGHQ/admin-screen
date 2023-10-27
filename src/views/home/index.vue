@@ -47,6 +47,7 @@
   
   <script setup>
 import dayjs from "dayjs";
+
 import { ref, getCurrentInstance, onMounted, computed } from "vue";
 
 import MapStat from "@/components/MapCommon.vue"; // 地图
@@ -76,11 +77,11 @@ const search = ref({
 
 // 当前时间
 let now = dayjs();
-// $U.weekNameFilter(now.day() + "")
+
 const currTime = ref({
   day: now.format("YYYY/MM/DD"),
   time: now.format("HH:mm:ss"),
-  week: "",
+  week: $U.weekNameFilter(now.day() + ""),
 });
 const style = ref({});
 // 定时器
