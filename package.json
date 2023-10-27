@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "axios": "^1.5.1",
+    "dayjs": "^1.11.10",
     "echarts": "^5.4.3",
     "element-resize-detector": "^1.2.4",
     "less": "^4.2.0",

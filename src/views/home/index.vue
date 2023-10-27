@@ -1,10 +1,10 @@
 <template>
   <div id="StatisticsIndex">
     <div class="header-container">
-      <img class="bg" src="@images/statistics/header_bg.png" alt="" />
+      <img class="bg" src="@/assets/images/statistics/header_bg.png" alt="" />
       <img
         class="title"
-        src="@images/statistics/title.png"
+        src="@/assets/images/statistics/title.png"
         alt=""
         :style="{ top: style.titleTop }"
       />
@@ -38,7 +38,7 @@
       <MapStat ref="map_stat" />
     </div>
     <div class="footer-container">
-      <img class="bg" src="@images/statistics/footer_bg.png" alt="" />
+      <img class="bg" src="@/assets/images/statistics/footer_bg.png" alt="" />
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@
 import dayjs from "dayjs";
 import { ref, getCurrentInstance, onMounted, computed } from "vue";
 
-import MapStat from "./components/MapStat.vue"; // 地图
+import MapStat from "@/components/MapCommon.vue"; // 地图
 
 const {
   proxy,
@@ -59,10 +59,10 @@ const {
 } = getCurrentInstance();
 
 onMounted(() => {
-  window.onresize = handleWindowOnResize;
-  handleWindowOnResize();
-  getData();
-  handleTimeWork();
+  // window.onresize = handleWindowOnResize;
+  // handleWindowOnResize();
+  // getData();
+  // handleTimeWork();
 });
 
 const search = ref({
@@ -74,10 +74,11 @@ const search = ref({
 
 // 当前时间
 let now = dayjs();
+// $U.weekNameFilter(now.day() + "")
 const currTime = ref({
   day: now.format("YYYY/MM/DD"),
   time: now.format("HH:mm:ss"),
-  week: $U.weekNameFilter(now.day() + ""),
+  week: "",
 });
 const style = ref({});
 // 定时器
@@ -87,7 +88,7 @@ let timerCount = 0;
 // 时间改变
 function getData() {
   let now = dayjs();
-  let mark = $U.statTypeFilter(search.value.stat_type, "mark");
+  // let mark = $U.statTypeFilter(search.value.stat_type, "mark");
   let begin_time = now.startOf(mark);
   let end_time = now.endOf(mark);
 
@@ -177,15 +178,16 @@ function handleFolderChange(key) {
     .time {
       .fac();
       position: absolute;
-      font-size: 20px;
+      .px2font(20);
+      // font-size: 20px;
       font-weight: bold;
       color: #40dfe2;
-      line-height: 23px;
-      right: 32px;
-      top: 7px;
+      .px2vh(line-height,23);
+      .px2vw(right,32);
+      .px2vh(top,7);
       font-family: DIN Alternate-Bold, DIN Alternate;
       span {
-        font-size: 17px;
+        .px2font(17);
         margin: 0 6px;
       }
     }
@@ -214,7 +216,8 @@ function handleFolderChange(key) {
         position: absolute;
         z-index: 2;
         height: 100%;
-        width: 16px;
+        .px2vw(width,16);
+        // width: 16px;
         top: 0;
         bottom: 0;
         &:after,

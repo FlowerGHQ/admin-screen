@@ -4,7 +4,7 @@
 <template>
   <div class="demo">
     基本样式创建
-    <TheWelcome></TheWelcome>
+    <!-- <TheWelcome></TheWelcome> -->
     <div class="box">11111</div>
     <button @click="requestClick">点击请求数据</button>
   </div>
@@ -36,12 +36,14 @@ onMounted(() => {
 //   height: 100vh;
 // }
 .box {
-  .px2vw(width, 300);
-  .px2vh(height, 100);
-  .px2font(16);
-  .px2vw(margin-left, 300);
-  .px2vh(margin-top, 100);
+  // .px2vw(width, 300);
+  // .px2vh(height, 100);
+  // .px2font(16);
+  // .px2vw(margin-left, 300);
+  // .px2vh(margin-top, 100);
   background-color: black;
+  width: 330px;
+  height: 330px;
   color: #fff;
   // font-size: 16px;
 }
