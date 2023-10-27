@@ -31,17 +31,18 @@ npm run dev
 npm run build
 ```
 ### 适配方案
-详见views/demo
-按照设计稿的尺寸 将px按比例计算转为vw和vh
-样式适配使用方式示例：
+本项目使用postcss-pxtorem 插件适配
+如果适配有问题可以尝试使用vw vh 
+src\styles\utils.less 该文件中有备用函数
 ```
-.box{
-    .px2vw(width, 300);
-    .px2vh(height, 100);
-    .px2font(16);
-    .px2vw(margin-left, 300);
-    .px2vh(margin-top, 100);
-    background-color: black;
+.box {
+  .px2vw(width, 300);
+  .px2vh(height, 100);
+  .px2font(16);
+  .px2vw(margin-left, 300);
+  .px2vh(margin-top, 100);
+  color: #fff;
+  font-size: 16px;
 }
 ```
 ### echarts适配
