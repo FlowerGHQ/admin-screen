@@ -8,6 +8,7 @@ import App from './App.vue'
 import router from './router'
 import directives from './directives'
 import { fitChartSize } from "./utils/echartsUtils";
+import "amfe-flexible/index.js";
 
 import './assets/main.css'
 import '@/styles/utils.less'

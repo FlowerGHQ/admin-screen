@@ -31,10 +31,6 @@ onMounted(() => {
 });
 </script>
 <style scoped lang='less'>
-// .demo {
-//   width: 100vw;
-//   height: 100vh;
-// }
 .box {
   // .px2vw(width, 300);
   // .px2vh(height, 100);
